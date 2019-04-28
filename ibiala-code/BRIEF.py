@@ -169,9 +169,11 @@ if __name__ == '__main__':
     # plt.close(fig)
 
     # test matches
-    im1 = cv2.imread('../photos/good1-cropped-no-bg.png')
-    im2 = cv2.imread('../photos/good2-cropped-no-bg.png')
+    im1 = cv2.imread('../photos/good1-cropped-extra-no-bg.png')
+    im2 = cv2.imread('../photos/good2-cropped-extra-no-bg.png')
     locs1, desc1 = briefLite(im1)
     locs2, desc2 = briefLite(im2)
     matches = briefMatch(desc1, desc2)
     plotMatches(im1,im2,matches,locs1,locs2)
+
+    np.savez('../data/project_data3', locs1=locs1, locs2=locs2, matches=matches, im1=im1, im2=im2)
