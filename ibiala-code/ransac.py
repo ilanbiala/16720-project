@@ -5,7 +5,7 @@ import helper
 from BRIEF import plotMatches
 
 
-project_data = np.load('../project_data.npz')
+project_data = np.load('../data/project_data.npz')
 matches = project_data['matches']
 locs1 = project_data['locs1']
 locs2 = project_data['locs2']
@@ -20,7 +20,7 @@ match2 = locs2[matches[:, 1], 0:2]
 n = match1.shape[0]
 s = 16
 count = 0
-num_iter = 1000
+num_iter = 5000
 min_r = 10000000
 F = None
 best_index = None
