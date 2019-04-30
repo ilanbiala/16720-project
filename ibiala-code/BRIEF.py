@@ -176,4 +176,4 @@ if __name__ == '__main__':
     matches = briefMatch(desc1, desc2)
     plotMatches(im1,im2,matches,locs1,locs2)
 
-    np.savez('../data/project_data3', locs1=locs1, locs2=locs2, matches=matches, im1=im1, im2=im2)
+    # np.savez('../data/project_temple', locs1=locs1, locs2=locs2, matches=matches, im1=im1, im2=im2)

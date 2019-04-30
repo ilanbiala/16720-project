@@ -1,9 +1,10 @@
 from submission import eightpoint
 import numpy as np
 import helper
+import cv2
 
 
-project_data = np.load('../data/project_data2.npz')
+project_data = np.load('../data/project_temple.npz')
 matches = project_data['matches']
 locs1 = project_data['locs1']
 locs2 = project_data['locs2']
@@ -17,6 +18,6 @@ match1 = locs1[matches[:, 0], 0:2]
 match2 = locs2[matches[:, 1], 0:2]
 
 F = eightpoint(match1, match2, M)
-np.savez('../data/F2.npz', F=F)
+np.savez('../data/F_temple.npz', F=F)
 helper.displayEpipolarF(im1, im2, F)
 

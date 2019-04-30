@@ -32,7 +32,10 @@ Q4.2:
 '''
 coords = np.load('../data/coords.npz')
 # intrinsics = np.load('../data/intrinsics.npz')
-intrinsics = np.eye(3)
+# intrinsics = np.eye(3)
+intrinsics = 1.0e3*np.array([
+    [3.8324, 0, 0], [0, 3.8178, 0],
+    [1.6911, 2.2214, 0.0010]])
 data = np.load('../data/project_data2.npz')
 
 im1 = data['im1']
@@ -57,7 +60,7 @@ K2 = intrinsics
 M = max(im1.shape)
 num_points = x1.shape[0]
 
-F2 = np.load('../data/F2.npz')
+F2 = np.load('../data/F3.npz')
 F = F2['F']
 # displayEpipolarF(im1, im2, F)
 E = essentialMatrix(F, K1, K2)
