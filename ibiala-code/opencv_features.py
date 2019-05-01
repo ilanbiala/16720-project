@@ -42,6 +42,12 @@ if __name__ == "__main__":
     #plt.imshow(img3,),plt.show()
     locs1 = [loc.pt for loc in locs1]
     locs2 = [loc.pt for loc in locs2]
-    #for i, (m n) in enumerate(matches):
-        #matches
-    #np.savez('../data/temple_image', locs1=locs1, locs2=locs2, matches=matches, im1=im1, im2=im2)
+    matches_x, matches_y = [], []
+    for i, (m, n) in enumerate(matches):
+        matches_x.append(m.queryIdx)
+        matches_y.append(n.queryIdx)
+    matches_x = np.array(matches_x)
+    matches_y = np.array(matches_y)
+    matches = np.stack((matches_x, matches_y), axis=1)
+    #print(type(locs1), type(locs2), type(matches))
+    np.savez('../data/temple_image', locs1=locs1, locs2=locs2, matches=matches, im1=im1, im2=im2)
