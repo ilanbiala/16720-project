@@ -174,8 +174,8 @@ if __name__ == '__main__':
     im2 = cv2.imread('../Palace/00136.jpg')
     height, width, _ = im1.shape
 
-    im1 = cv2.resize(im1, (int(height/4), int(width/4)))
-    im2 = cv2.resize(im2, (int(height / 4), int(width / 4)))
+    im1 = cv2.resize(im1, (int(width/4), int(height/4)))
+    im2 = cv2.resize(im2, (int(width / 4), int(height / 4)))
 
     locs1, desc1 = briefLite(im1)
     locs2, desc2 = briefLite(im2)
