@@ -9,7 +9,7 @@ if __name__ == "__main__":
     im1 = cv2.imread('../Palace/00136.jpg')
     im2 = cv2.imread('../Palace/00137.jpg')
 
-    height, width, _ = im1.shape
+    width, height, _ = im1.shape
     im1 = cv2.resize(im1, (int(height/4), int(width/4)))
     im2 = cv2.resize(im2, (int(height/4), int(width/4)))
  
