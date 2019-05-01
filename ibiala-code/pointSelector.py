@@ -1,10 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-project_data = np.load('../data/project_data2.npz')
+project_data = np.load('../data/project_palace.npz')
 
 try:
-    coords = np.load('../data/coords.npz')
+    coords = np.load('../data/coords_palace.npz')
     x1, y1 = list(coords['x1']), list(coords['y1'])
 except:
     print('No previous coords saved...')
@@ -34,4 +34,4 @@ while True:
     x1.append(xc)
     y1.append(yc)
 
-np.savez('../data/coords.npz', x1=x1, y1=y1)
+np.savez('../data/coords_palace.npz', x1=x1, y1=y1)

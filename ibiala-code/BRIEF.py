@@ -154,7 +154,6 @@ def plotMatches(im1, im2, matches, locs1, locs2):
     plt.show()
 
 
-
 if __name__ == '__main__':
     # # test makeTestPattern
     # compareX, compareY = makeTestPattern()
@@ -169,11 +168,18 @@ if __name__ == '__main__':
     # plt.close(fig)
 
     # test matches
-    im1 = cv2.imread('../photos/good1-cropped-extra-no-bg.png')
-    im2 = cv2.imread('../photos/good2-cropped-extra-no-bg.png')
+    # im1 = cv2.imread('../photos/good1-cropped-extra-no-bg.png')
+    # im2 = cv2.imread('../photos/good2-cropped-extra-no-bg.png')
+    im1 = cv2.imread('../Palace/00137.jpg')
+    im2 = cv2.imread('../Palace/00136.jpg')
+    height, width, _ = im1.shape
+
+    im1 = cv2.resize(im1, (int(width/4), int(height/4)))
+    im2 = cv2.resize(im2, (int(width / 4), int(height / 4)))
+
     locs1, desc1 = briefLite(im1)
     locs2, desc2 = briefLite(im2)
     matches = briefMatch(desc1, desc2)
-    plotMatches(im1,im2,matches,locs1,locs2)
+    plotMatches(im1, im2,matches,locs1,locs2)
 
-    # np.savez('../data/project_temple', locs1=locs1, locs2=locs2, matches=matches, im1=im1, im2=im2)
+    np.savez('../data/project_palace', locs1=locs1, locs2=locs2, matches=matches, im1=im1, im2=im2)
