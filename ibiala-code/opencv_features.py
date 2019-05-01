@@ -4,8 +4,14 @@ import cv2
 
 
 if __name__ == "__main__":
-    im1 = cv2.imread('../photos/good1-cropped-extra-no-bg.png')
-    im2 = cv2.imread('../photos/good2-cropped-extra-no-bg.png')
+    #im1 = cv2.imread('../photos/good1-cropped-extra-no-bg.png')
+    #im2 = cv2.imread('../photos/good2-cropped-extra-no-bg.png')
+    im1 = cv2.imread('../Palace/00136.jpg')
+    im2 = cv2.imread('../Palace/00137.jpg')
+
+    height, width, _ = im1.shape
+    im1 = cv2.resize(im1, (int(height/4), int(width/4)))
+    im2 = cv2.resize(im2, (int(height/4), int(width/4)))
  
     surf = cv2.xfeatures2d.SURF_create(400)
     locs1, desc1 = surf.detectAndCompute(im1, None)
@@ -14,7 +20,7 @@ if __name__ == "__main__":
     #matches = briefMatch(desc1, desc2)
     im = cv2.drawKeypoints(im1, locs1, None, (255, 0, 0), 4)
     plt.imshow(im)
-    plt.show()
+    #plt.show()
 
     # FLANN parameters
     FLANN_INDEX_KDTREE = 1
@@ -33,4 +39,9 @@ if __name__ == "__main__":
                     matchesMask = matchesMask,
                     flags = cv2.DrawMatchesFlags_DEFAULT)
     img3 = cv2.drawMatchesKnn(im1,locs1,im2,locs2,matches,None,**draw_params)
-    plt.imshow(img3,),plt.show()   # np.savez('../data/project_temple', locs1=locs1, locs2=locs2, matches=matches, im1=im1, im2=im2)
+    #plt.imshow(img3,),plt.show()
+    locs1 = [loc.pt for loc in locs1]
+    locs2 = [loc.pt for loc in locs2]
+    #for i, (m n) in enumerate(matches):
+        #matches
+    #np.savez('../data/temple_image', locs1=locs1, locs2=locs2, matches=matches, im1=im1, im2=im2)
